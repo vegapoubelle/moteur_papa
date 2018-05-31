@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include "BasicStepperDriver.h"
+
 #define MOTOR_STEPS 200
 #define RPM 120
 
@@ -20,7 +23,7 @@ void setup() {
 }
 
 void loop() { 
-    if
-
     stepper.rotate(360);
     stepper.move(-MOTOR_STEPS*MICROSTEPS);
+    delay(5000);
+}
