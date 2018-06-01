@@ -13,6 +13,7 @@
 #define DIR 15
 #define STEP 2
 
+const int enable_moteur = 0;
 
 
 BasicStepperDriver stepper(MOTOR_STEPS, DIR, STEP);
@@ -20,10 +21,12 @@ BasicStepperDriver stepper(MOTOR_STEPS, DIR, STEP);
 
 void setup() {
     stepper.begin(RPM, MICROSTEPS);
+    pinMode(enable_moteur,OUTPUT);
+    digitalWrite(enable_moteur,HIGH);
 }
 
 void loop() { 
-    stepper.rotate(360);
+    stepper.rotate(200);
     stepper.move(-MOTOR_STEPS*MICROSTEPS);
     delay(5000);
 }
